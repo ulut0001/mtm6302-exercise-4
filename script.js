@@ -17,7 +17,8 @@ let upInterval;
 let downInterval;
 
 let d = new Date();
-console.log(d);
+
+//functions
 
 function counterContent () {
     $dayLeft.textContent = ('00' + $dayDif).slice(-3);
@@ -96,18 +97,13 @@ function parseDate () {
     const $hour = $dateChosen.slice(11, 13);
     const $min = $dateChosen.slice(14, 16);
     jsDateChosen = new Date($year, ($month - 1), $day, $hour, $min);
-    console.log(jsDateChosen);
     difference = jsDateChosen.getTime() - d.getTime();
     if (difference < 0) {
         difference = Math.abs(difference);
     };
-    console.log(difference);
     $dayDif = Math.floor(difference / 1000 / 60 / 60 /24);
-    console.log($dayDif);
     $hourDif = Math.floor((difference - ($dayDif * 1000 * 60 * 60 * 24)) / 1000 / 60 / 60);
-    console.log($hourDif);
     $minDif = Math.floor((difference - ($dayDif * 1000 * 60 * 60 * 24) - ($hourDif * 1000 * 60 * 60)) / 1000 / 60);
-    console.log($minDif);
     $secs = Math.floor((difference - ($dayDif * 1000 * 60 * 60 * 24) - ($hourDif * 1000 * 60 * 60) - ($minDif * 1000 * 60)) / 1000)
 };
 
